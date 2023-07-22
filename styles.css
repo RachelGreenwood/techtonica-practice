@@ -9,3 +9,8 @@ h1 {
 a {
     color: white;
 }
+
+#section1 {
+    background-color: rgba(229,229,229,255);
+    color: rgba(56,56,56,255);
+}
