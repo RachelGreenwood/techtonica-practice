@@ -5,3 +5,8 @@ class Event {
       this.availableTickets = [];
     }
   }
+
+  const eventObj1 = new Event(
+    'Nothing But Thieves On Tour',
+    'Performing their new album Dead Club City'
+  );
