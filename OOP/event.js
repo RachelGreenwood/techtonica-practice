@@ -7,6 +7,13 @@ class Event {
     addAvailableTickets(type, price) {
         this.availableTickets.push(new TicketType(type, price));
     }
+    allTickets() {
+        let str = "All tickets: "
+        for (let i = 0; i < this.availableTickets.length; i++) {
+            str += `${i + 1}. ${this.availableTickets[i].name} ($${this.availableTickets[i].price}) `;
+        }
+        return str;
+    }
   }
 
 
@@ -18,17 +25,17 @@ const eventArray = new Array();
 
 // pushing multiple objects to an array at once
 eventArray.push(eventObj1, eventObj2, eventObj3);
-    console.log(eventObj1);
-    console.log(eventArray);
+    // console.log(eventObj1);
+    // console.log(eventArray);
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Handler when the DOM is fully loaded
-    let html = '';
-    eventArray.forEach((item) => {
-      html += `<li>${item.name} - ${item.description}`;
-    });
-    document.querySelector('#event').innerHTML = html;
-  });
+// document.addEventListener('DOMContentLoaded', () => {
+//     // Handler when the DOM is fully loaded
+//     let html = '';
+//     eventArray.forEach((item) => {
+//       html += `<li>${item.name} - ${item.description}`;
+//     });
+//     document.querySelector('#event').innerHTML = html;
+//   });
 
 class TicketType {
     constructor(name, price) {
@@ -37,15 +44,18 @@ class TicketType {
     }
 }
 
-eventObj1.addAvailableTickets("General Admission", 30);
-eventObj1.addAvailableTickets("Floor Seating", 50);
-    console.log(eventObj1);
+eventObj1.addAvailableTickets("Dead Club City Citizen", 30);
+eventObj1.addAvailableTickets("Zzzero Member", 50);
+    // console.log(eventObj1);
 
 eventObj2.addAvailableTickets("General Admission", 25)
 eventObj2.addAvailableTickets("Floor Seating", 80)
-   console.log(eventObj2);
+//    console.log(eventObj2);
 
 eventObj3.addAvailableTickets("Orchestra", 300)
 eventObj3.addAvailableTickets("Mezzanine", 200)
 eventObj3.addAvailableTickets("Balcony", 100)
-   console.log(eventObj3);
+//    console.log(eventObj3);
+
+console.log(eventObj1["availableTickets"]);
+console.log(eventObj1.allTickets());
