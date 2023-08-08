@@ -14,6 +14,24 @@ class Event {
         }
         return str;
     }
+    searchTickets(lower, upper) {
+        let priceRange = [];
+        for (let i = 0; i < this.availableTickets.length; i++) {
+            if (this.availableTickets[i].price >= lower && this.availableTickets[i].price <= upper) {
+                priceRange.push(this.availableTickets[i]);
+            }
+        }
+        let str2 = `Eligible tickets: `;
+        let sorted = priceRange.sort((a, b) => lower - upper);
+        for (let i = 0; i < sorted.length; i++) {
+            str2 += `${i + 1}. ${sorted[i].name} ($${sorted[i].price}) `
+        }
+        if (priceRange.length === 0) {
+            return "No tickets available";
+        } else {
+            return str2;
+        }
+    }
   }
 
 
@@ -28,14 +46,14 @@ eventArray.push(eventObj1, eventObj2, eventObj3);
     // console.log(eventObj1);
     // console.log(eventArray);
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Handler when the DOM is fully loaded
-    let html = '';
-    eventArray.forEach((item) => {
-      html += `<li>${item.allTickets()}`;
-    });
-    document.querySelector('#event').innerHTML = html;
-  });
+//  document.addEventListener('DOMContentLoaded', () => {
+//     // Handler when the DOM is fully loaded
+//     let html = '';
+//     eventArray.forEach((item) => {
+//       html += `<li>${item.allTickets()}`;
+//     });
+//     document.querySelector('#event').innerHTML = html;
+//   });
 
 class TicketType {
     constructor(name, price) {
@@ -57,6 +75,8 @@ eventObj3.addAvailableTickets("Mezzanine", 200)
 eventObj3.addAvailableTickets("Balcony", 100)
 //    console.log(eventObj3);
 
-console.log(eventObj1.allTickets());
-console.log(eventObj2.allTickets());
-console.log(eventObj3.allTickets());
+// console.log(eventObj1.allTickets());
+// console.log(eventObj2.allTickets());
+// console.log(eventObj3.allTickets());
+console.log(eventObj3.searchTickets(0, 250));
+console.log(eventObj3.searchTickets(0, 0));
