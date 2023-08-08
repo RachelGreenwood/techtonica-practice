@@ -25,3 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.querySelector('#event').innerHTML = html;
   });
+
+class TicketType {
+    constructor()
+}
