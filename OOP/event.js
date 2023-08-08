@@ -21,7 +21,7 @@ class Event {
                 priceRange.push(this.availableTickets[i]);
             }
         }
-        let str2 = `Eligible tickets: `;
+        let str2 = `${this.name} = ${this.description} - Eligible tickets: `;
         let sorted = priceRange.sort((a, b) => lower - upper);
         for (let i = 0; i < sorted.length; i++) {
             str2 += `${i + 1}. ${sorted[i].name} ($${sorted[i].price}) `
@@ -46,14 +46,14 @@ eventArray.push(eventObj1, eventObj2, eventObj3);
     // console.log(eventObj1);
     // console.log(eventArray);
 
-//  document.addEventListener('DOMContentLoaded', () => {
-//     // Handler when the DOM is fully loaded
-//     let html = '';
-//     eventArray.forEach((item) => {
-//       html += `<li>${item.allTickets()}`;
-//     });
-//     document.querySelector('#event').innerHTML = html;
-//   });
+ document.addEventListener('DOMContentLoaded', () => {
+    // Handler when the DOM is fully loaded
+    let html = '';
+    eventArray.forEach((item) => {
+      html += `<li>${item.searchTickets(0, 125)}`;
+    });
+    document.querySelector('#event').innerHTML = html;
+  });
 
 class TicketType {
     constructor(name, price) {
@@ -78,5 +78,6 @@ eventObj3.addAvailableTickets("Balcony", 100)
 // console.log(eventObj1.allTickets());
 // console.log(eventObj2.allTickets());
 // console.log(eventObj3.allTickets());
-console.log(eventObj3.searchTickets(0, 250));
-console.log(eventObj3.searchTickets(0, 0));
+
+// console.log(eventObj3.searchTickets(0, 250));
+// console.log(eventObj3.searchTickets(0, 0));
