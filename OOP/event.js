@@ -8,7 +8,7 @@ class Event {
         this.availableTickets.push(new TicketType(type, price));
     }
     allTickets() {
-        let str = "All tickets: "
+        let str = `${this.name} - ${this.description} - All tickets: `
         for (let i = 0; i < this.availableTickets.length; i++) {
             str += `${i + 1}. ${this.availableTickets[i].name} ($${this.availableTickets[i].price}) `;
         }
@@ -57,5 +57,6 @@ eventObj3.addAvailableTickets("Mezzanine", 200)
 eventObj3.addAvailableTickets("Balcony", 100)
 //    console.log(eventObj3);
 
-console.log(eventObj1["availableTickets"]);
 console.log(eventObj1.allTickets());
+console.log(eventObj2.allTickets());
+console.log(eventObj3.allTickets());
