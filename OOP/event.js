@@ -28,14 +28,14 @@ eventArray.push(eventObj1, eventObj2, eventObj3);
     // console.log(eventObj1);
     // console.log(eventArray);
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     // Handler when the DOM is fully loaded
-//     let html = '';
-//     eventArray.forEach((item) => {
-//       html += `<li>${item.name} - ${item.description}`;
-//     });
-//     document.querySelector('#event').innerHTML = html;
-//   });
+document.addEventListener('DOMContentLoaded', () => {
+    // Handler when the DOM is fully loaded
+    let html = '';
+    eventArray.forEach((item) => {
+      html += `<li>${item.allTickets()}`;
+    });
+    document.querySelector('#event').innerHTML = html;
+  });
 
 class TicketType {
     constructor(name, price) {
